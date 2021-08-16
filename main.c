@@ -1,10 +1,7 @@
 #include <stdio.h>
 
-void logTemprature(int farh, int cel) {
-  printf("%df is equal to %dc \n", farh, cel);
-}
-
-float getCelsiusFromFarh(int farh) { return (5 * (farh - 32)) / 9; }
+void logTemprature(int farh, int cel);
+int getCelsiusFromFarh(int farh);
 
 int main() {
   int lower, upper, step;
@@ -14,8 +11,13 @@ int main() {
   step = 20;
 
   while (lower <= upper) {
-    int cel = (int)getCelsiusFromFarh(lower);
-    logTemprature(lower, cel);
+    logTemprature(lower, getCelsiusFromFarh(lower));
     lower = step + lower;
   }
 }
+
+void logTemprature(int farh, int cel) {
+  printf("%df is equal to %dc \n", farh, cel);
+}
+
+int getCelsiusFromFarh(int farh) { return (5 * (farh - 32)) / 9; }
