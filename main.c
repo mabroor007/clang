@@ -1,26 +1,13 @@
 #include <stdio.h>
 
-void logTemprature(float farh, float cel);
-float getCelsiusFromFarh(float farh);
-float getFarhFromCel(float cel);
+#define LOWER 0
+#define UPPER 10
 
-int main() {
-  float lower, upper, step;
+int main(void) {
 
-  lower = 0;
-  upper = 300.0;
-  step = 20.0;
-
-  while (lower <= upper) {
-    logTemprature(lower, getCelsiusFromFarh(lower));
-    logTemprature(getFarhFromCel(lower), lower);
-    lower = step + lower;
+  for (int i = LOWER; i < UPPER; i++) {
+    printf("%d", i);
   }
-}
 
-void logTemprature(float farh, float cel) {
-  printf("%ff is equal to %fc \n", farh, cel);
+  return 0;
 }
-
-float getCelsiusFromFarh(float farh) { return (5.0 * (farh - 32.0)) / 9.0; }
-float getFarhFromCel(float cel) { return (cel * 1.8) + 32.0; }
